@@ -53,11 +53,26 @@ describe("reducer", function () {
     });
   });
 
-  /*
   describe("makeGuess", () => {
     it("Should make a guess", () => {
+      let state = {
+        guesses: [],
+        feedback: "",
+        correctAnswer: 42
+      };
 
+      state = reducer(state, makeGuess(100));
+      expect(state.guesses).toEqual([100]);
+      expect(state.feedback).toEqual("You're Ice Cold...");
+
+      state = reducer(state, makeGuess(53));
+      expect(state.guesses).toEqual([100, 53]);
+      expect(state.feedback).toEqual("You're Warm.");
+
+      state = reducer(state, makeGuess(42));
+      expect(state.guesses).toEqual([100, 53, 42]);
+      expect(state.feedback).toEqual("You got it!");
     });
   });
-  */
+
 });
