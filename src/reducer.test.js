@@ -13,4 +13,9 @@ describe("reducer", function () {
     expect(state.correctAnswer).toBeLessThanOrEqual(100);
   });
 
+  it("Should return the current state of an unknown action", () => {
+    let currentState = {};
+    let state = reducer(currentState, {type: "__UNKNOWN"});
+    expect(state).toBe(currentState);
+  });
 });
