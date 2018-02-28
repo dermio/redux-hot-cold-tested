@@ -18,4 +18,32 @@ describe("reducer", function () {
     let state = reducer(currentState, {type: "__UNKNOWN"});
     expect(state).toBe(currentState);
   });
+
+
+  describe("generateAuralUpdate", () => {
+    it("Should generate aural update", () => {
+      let state = {
+        guesses: [25, 3, 90],
+        feedback: "You're Warm.",
+        auralStatus: ""
+      };
+
+      state = reducer(state, generateAuralUpdate());
+      expect(state.auralStatus).toEqual("Here's the status of the game right now: You're Warm. You've made 3 guesses. In order of most- to least-recent, they are: 90, 3, 25");
+    });
+  });
+
+  /*
+  describe("restartGame", () => {
+    it("Should restart the game", () => {
+
+    });
+  });
+
+  describe("makeGuess", () => {
+    it("Should make a guess", () => {
+
+    });
+  });
+  */
 });
