@@ -33,13 +33,27 @@ describe("reducer", function () {
     });
   });
 
-  /*
   describe("restartGame", () => {
     it("Should restart the game", () => {
+      let state = {
+        guesses: [9, 99, 42],
+        feedback: "Caliente",
+        correctAnswer: 23
+      };
+      let correctAnswer = 42;
 
+      state = reducer(state, restartGame(correctAnswer));
+      // The state is reset with a correct answer, a new game is started
+      // console.log(state);
+
+      expect(state.guesses).toEqual([]);
+      expect(state.feedback).toEqual("Make your guess!");
+      expect(state.correctAnswer).toEqual(42);
+      expect(state.auralStatus).toEqual("");
     });
   });
 
+  /*
   describe("makeGuess", () => {
     it("Should make a guess", () => {
 
